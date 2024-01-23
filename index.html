@@ -7,10 +7,30 @@
 </head>
 <body>
     <header id="masterheader" class="site-head" role="banner">
-        <nav class="navigator">
+        <nav class="navigator-main">
             <div class="expand-banner">
                 <div class="container-body">
                     <div class="navigator-bar-header">
+                        <div id="navigator-bar" class="navbar">
+                            <ul id="main-menu" class="navbar" itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+                                <li id="menu-MyProject" class="menu-item MyProject">
+                                    <a href="#">
+                                        <span itemprop="name">My Project</span>
+                                    </a>
+                                </li>
+                                <li id="menu-MyStory" class="menu-item MyStory">
+                                    <a href="about.html">
+                                        <span itemprop="name">About Me</span>
+                                    </a>
+                                </li>
+                                <li id="menu-MyResume" class="menu-item MyResume">
+                                    <a href="#">
+                                        <span itemprop="name">About My Resume</span>
+                                    </a>
+                                </li>
+                            </ul>
+
+                        </div>
                         <a class="main-logo" href="https://cmcng97.com" title="CMCNG97 | Project of CM Choong" rel="home">
                             <img src="https://cmcng97.com/images/cmcng97-high-resolution-logo-transparent.png" alt="Website-logo" width="200" height="93.4">
                         </a>
@@ -23,12 +43,7 @@
     <div id="content" class="container-of-content">
         <p>Hi, Im CM Choong. Welcome to my first Project web pages</p>
     </div>
-    
-    <h1><em>
-        <div class="AboutMe">
-            <a href="about.html">About Me</a>
-        </div>
-    </em></h1>
+
     <li>
         <style>
             ul {list-style: none; padding: 0;}
