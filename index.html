@@ -1,44 +1,193 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.1.0/remixicon.min.css">
     <link rel="stylesheet" href="static/css/main.css">
-    <title>CMCNG97 | created by CM Choong</title>
+    <title>CMCNG97 Portfolio | CM Choong</title>
 </head>
 
-
 <body>
-    <nav class="navigator-main">
+
+    <nav>
         <div class="nav-logo">
-            <a id="main-logo" href="index.html" title="CMCNG97 | Project of CM Choong" rel="home">
+            <a id="main-logo" href="index.html" title="CMCNG97 | Project of CM Choong">
                 <img src="static/images/cmcng97-high-resolution-logo-transparent.png" width="200" height="93.4">
             </a>
         </div>
+        <ul class="navbar-link">
+            <li id="menu-HomePage" class="menu-item HomePage" title="Home Page | CM Choong" ><a href="index.html">Home</a></li>
+            <li id="menu-MyProject" class="menu-item MyProject" title="MyProject"><a href="experience.html">Project</a></li>
+            <li id="menu-MyAward" class="menu-item MyAward" title="About My Award"><a href="awards.html">Awards</a></li>
+            <li id="menu-MyResume" class="menu-item MyResume" title="About Me Resume"><a href="static/folder/My Resume.pdf" download="">About Me?</a></li>
+            <li id="menu-ContactMe" class="menu-item ContactMe"><a href="contact.html">Let's Talk to Me</a></li>
+        </ul>
+        <button>Contact Me</button>
+        <button id="menuBUtton" onclick="openMenu()">
+            <a href="contact.html"></a>
+        </button>
     </nav>
 
-    <ul class="navbar-link">
-        <li id="menu-HomePage" class="menu-item HomePage" title="Home Page | CM Choong" >
-                <a href="index.html">Home</a>
-        </li>
+    <div class="main" id="main">
+        <div class="left">
+            <h3>Hi, I am</h3>
+                <h2><span>CM Choong</span></h2>
+                <p class="subtitle">
+                    Although I do not hold a formal diploma in IT, I possess practical experience in the <span>IT sector</span>. 
+                    <br>I also possess pratical experience in MS Office, such as <span>Excel (Macros/VBA)</span>,<span>Basis of Word</span> and <span>PowerPoint</span>. 
+                    <br>I would like to be myself, anything be in peace.
+                </p>
+        </div>
+        <div class="profile-image">
+            <img src="static/images/1706507069534.jpg">
+        </div>
+    </div>
 
-        <li id="menu-MyProject" class="menu-item MyProject" title="MyProject">
-            <a href="experience.html">Project</a>
-        </li>
+    <div class="skills" id="skills">
+        <h5>My Skills</h5>
+        <h3>My Expertise</h3>
+        <div class="skill-items">
+            <div class="item">
+                <div class="icon"><i class="ri-artboard-line"></i>"</div>
+                <h4>Art</h4>
+                <p>
+                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Accusantium pariatur recusandae possimus molestias rem facilis non modi perferendis id? Quasi est commodi officiis temporibus sapiente quam asperiores laudantium itaque non.
+                </p>
+            </div>
+            <div class="item">
+                <div class="icon"><i class="ri-creative-commons-line"></i>"</div>
+                <h4>Content Creater</h4>
+                <p>
+                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Accusantium pariatur recusandae possimus molestias rem facilis non modi perferendis id? Quasi est commodi officiis temporibus sapiente quam asperiores laudantium itaque non.
+                </p>
+            </div>
+            <div class="item">
+                <div class="icon"><i class="ri-pages-line"></i>"</div>
+                <h4>Project</h4>
+                <p>
+                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Accusantium pariatur recusandae possimus molestias rem facilis non modi perferendis id? Quasi est commodi officiis temporibus sapiente quam asperiores laudantium itaque non.
+                </p>
+            </div>
+            <div class="item">
+                <div class="icon"><i class="ri-code-s-slash-fill"></i>"</div>
+                <h4>Webflow Coding</h4>
+                <p>
+                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Accusantium pariatur recusandae possimus molestias rem facilis non modi perferendis id? Quasi est commodi officiis temporibus sapiente quam asperiores laudantium itaque non.
+                </p>
+            </div>
+        </div>
+    </div>
 
-        <li id="menu-MyAward" class="menu-item MyAward" title="About My Award">
-            <a href="awards.html">Awards</a>
-        </li>
+    <div class="portfolio" id="portfolio">
+        <div class="header">
+            <div class="info">
+                <h5>Latest Project</h5>
+                <h3>My Portfolio</h3>
+            </div>
+            <button><i class="ri-youtube-line"></i>Visit My Channel Page</button>
+        </div>
 
-        <li id="menu-MyResume" class="menu-item MyResume" title="About Me Resume">
-            <a href="static/folder/My Resume.pdf" download="">About Me?</a>
-        </li>
+        <div class="portfolio-items">
+            <div class="item">
+                <img src="static/images/Production Analysis img.jpg">
+                <div class="info">
+                    <h4>Production Analysis</h4>
+                    <p>
+                        Analysis out the product reject rate and good rate, for the previous and present average.
+                        <br><a href="https://wa.me/60143394001?text=Hello, we have some interest in your Product Analysis Project">Please contact for the more information.<i class="ri-external-link-line"></i></a>
+                    </p>
+                </div>
+            </div>
+            <div class="item">
+                <img src="static/images/C Sharp software create img.jpg software create img.jpg">
+                <div class="info">
+                    <h4>C# Software Development</h4>
+                    <p>
+                        The demo for test login to main pages, and manage account in software.
+                        <br><a href="https://wa.me/60143394001?text=Hello, we have some interest in your C# Software Project">Please contact for the more information.<i class="ri-external-link-line"></i></a>
+                    </p>
+                </div>
+            </div>
+            <div class="item">
+                <img src="static/images/Payroll img.jpg">
+                <div class="info">
+                    <h4>Excel Payroll Calculation</h4>
+                    <p>
+                        Excel auto calculation for the payroll system.
+                        <br><a href="https://wa.me/60143394001?text=Hello, we have some interest in your Excel Payroll Project">Please contact for the more information.<i class="ri-external-link-line"></i></a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
 
-        <li id="menu-ContactMe" class="menu-item ContactMe">
-            <a href="contact.html">Let's Talk to Me</a>
-        </li>
-    </ul>
+    <div class="feedback" id="feedback">
+        <h5>Clients Reviews</h5>
+        <h3>Customer Feedback</h3>
+        <div class="customers">
+            <div class="item">
+                <div class="rating">
+                    <i class="ri-star-s-fill"></i>
+                    <i class="ri-star-s-fill"></i>
+                    <i class="ri-star-s-fill"></i>
+                    <i class="ri-star-half-s-fill"></i>
+                    <i class="ri-star-s-line"></i>
+                </div>
+                <p>
+                    "Good Excel analyzer, easy to understand and not complicated. The efficiency is good."
+                </p>
+                <div class="user">
+                    <img src="static/images/us-2.jpg">
+                    <div class="info">
+                        <h5>Kristian Watson</h5>
+                        <p>Production Manager</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="item">
+                <div class="rating">
+                    <i class="ri-star-s-fill"></i>
+                    <i class="ri-star-s-fill"></i>
+                    <i class="ri-star-s-fill"></i>
+                    <i class="ri-star-s-line"></i>
+                    <i class="ri-star-s-line"></i>
+                </div>
+                <p>
+                    "和我所要的条件有点不符合，但是功能和我想要的接近。所以我给 3星，因为作者花费时间来帮我制作出来。"
+                </p>
+                <div class="user">
+                    <img src="static/images/cn.jpg">
+                    <div class="info">
+                        <h5>朱溢哲</h5>
+                        <p>Finance Executive</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="item">
+                <div class="rating">
+                    <i class="ri-star-s-fill"></i>
+                    <i class="ri-star-s-fill"></i>
+                    <i class="ri-star-s-fill"></i>
+                    <i class="ri-star-s-fill"></i>
+                    <i class="ri-star-s-line"></i>
+                </div>
+                <p>
+                    "Super excellent content create, and logo design for me"
+                </p>
+                <div class="user">
+                    <img src="static/images/us-1.jpg">
+                    <div class="info">
+                        <h5>Dianne Russell</h5>
+                        <p>Property</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <nav class="navigator-whatsapp">
         <div class="nav-whtp">
@@ -48,20 +197,6 @@
         </div>
     </nav>
 
-    <header class="container">
-        <div class="container">
-            <h3 class="Heading-introduction">Hello, I'm</h3>
-            <h2 class="My-Name">CM Choong</h2>
-            <p>
-                I would like to be myself, anything be in peace.
-            </p>
-            <button class="btn">Get Started</button>
-            <div class="image">
-                <img src="static/images/1706507069534.jpg">
-            </div>
-        </div>
-    </header>
-
     <div class="container-of-content">
         
     </div>
@@ -69,8 +204,34 @@
     <script src="main.js"></script>
 
     <footer>
-        <p>&copy; 2024 All right reserved | CMCNG97 Copyright </p>
+        <div class="top">
+            <div class="logo">
+                <img src="static/images/cmcng97-high-resolution-logo-transparent.png">
+            </div>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="contact.html">Contact Me</a></li>
+                <li><a href="https://www.youtube.com/channel/UCF_fYTbi9GbJ0UVG-kfwoRQ">Youtube Channel</a></li>
+                <li><a href="experience.html">Project</a></li>
+            </ul>
+            <div class="social-links">
+                <a href="https://www.facebook.com/GamerofCMChoong/"><i class="ri-facebook-circle-line"></i></a>
+                <a href="https://www.instagram.com/chengmeng.choong?igsh=Z3FydmhodXVsamlj"><i class="ri-instagram-line"></i></a>
+                <a href="https://www.artstation.com/choongmeng"><i class="bx bx-artstation-line"></i></a>
+            </div>
+        </div>
+        <div class="separator"></div>
+        <div class="bottom">
+            <p>&copy; 2024 All right reserved | CMCNG97 Copyright </p>
+            <div class="links">
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Service</a>
+                <a href="#">Cookies Setting</a>
+            </div>
+        </div>
     </footer>
+
+    <script src="script.js"></script>
 </body>
 
 </html>
