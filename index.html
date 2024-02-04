@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,28 +7,31 @@
     <link rel="stylesheet" href="static/css/main.css">
     <title>CMCNG97 Portfolio | CM Choong</title>
 </head>
-
 <body>
 
+    <!--个人主页 Logo-->
     <nav>
         <div class="nav-logo">
-            <a id="main-logo" href="index.html" title="CMCNG97 | Project of CM Choong">
+            <a id="main-logo" href="index.html" title="CMCNG97 | Portfolio of CM Choong">
                 <img src="static/images/cmcng97-high-resolution-logo-transparent.png" width="200" height="93.4">
             </a>
         </div>
-        <ul class="navbar-link">
-            <li id="menu-HomePage" class="menu-item HomePage" title="Home Page | CM Choong" ><a href="index.html">Home</a></li>
-            <li id="menu-MyProject" class="menu-item MyProject" title="MyProject"><a href="experience.html">Project</a></li>
-            <li id="menu-MyAward" class="menu-item MyAward" title="About My Award"><a href="awards.html">Awards</a></li>
-            <li id="menu-MyResume" class="menu-item MyResume" title="About Me Resume"><a href="static/folder/My Resume.pdf" download="">About Me?</a></li>
-            <li id="menu-ContactMe" class="menu-item ContactMe"><a href="contact.html">Let's Talk to Me</a></li>
-        </ul>
-        <button>Contact Me</button>
-        <button id="menuBUtton" onclick="openMenu()">
-            <a href="contact.html"></a>
-        </button>
     </nav>
+    
+    <!--Header Banner 功能-->
+    <ul class="navbar-link">
+        <!--分类选项 Category Option-->
+        <li id="menu-HomePage" class="menu-item HomePage" title="Home Page | CM Choong"><a href="index.html">Home</a></li>
+        <li id="menu-MyProject" class="menu-item MyProject" title="MyProject"><a href="experience.html">Project</a></li>
+        <li id="menu-MyAward" class="menu-item MyAward" title="About My Award"><a href="award.html">Awards</a></li>
+        <li id="menu-MyResume" class="menu-item MyResume" title="About My Resume"><a href="static/folder/My Resume.pdf" download="">About Me</a></li>
+        <li id="menu-ContactMe" class="menu-item ContactMe"><a href="contact.html">Let's Talk to Me</a></li>
+    
+        <!--联系按键 Contact Button-->
+        <button id="menuButton" onclick="openMenu()"><a href="contact.html"></a>Contact Me</button>
+    </ul>
 
+    <!--Content-->
     <div class="main" id="main">
         <div class="left">
             <h3>Hi, I am</h3>
@@ -40,11 +42,16 @@
                     <br>I would like to be myself, anything be in peace.
                 </p>
         </div>
-        <div class="profile-image">
-            <img src="static/images/1706507069534.jpg">
+
+        <!--Profile Image 个人图片展示-->
+        <div class="right">
+            <div class="profile-image" id="profile-image">
+                <img src="static/images/1706507069534.jpg">
+            </div>
         </div>
     </div>
 
+    <!--Skills Shown Part 技能展示部分-->
     <div class="skills" id="skills">
         <h5>My Skills</h5>
         <h3>My Expertise</h3>
@@ -80,6 +87,7 @@
         </div>
     </div>
 
+    <!--Project Shown Part 作品展示部分-->
     <div class="portfolio" id="portfolio">
         <div class="header">
             <div class="info">
@@ -123,6 +131,7 @@
         </div>
     </div>
 
+    <!--Customer Feedback Part 客户反馈部分-->
     <div class="feedback" id="feedback">
         <h5>Clients Reviews</h5>
         <h3>Customer Feedback</h3>
@@ -156,7 +165,7 @@
                     <i class="ri-star-s-line"></i>
                 </div>
                 <p>
-                    "和我所要的条件有点不符合，但是功能和我想要的接近。所以我给 3星，因为作者花费时间来帮我制作出来。"
+                    "和我所要的条件有点不符合，但是功能和我想要的接近。所以我给 3星, 因为作者花费时间来帮我制作出来。"
                 </p>
                 <div class="user">
                     <img src="static/images/cn.jpg">
@@ -189,17 +198,13 @@
         </div>
     </div>
 
-    <nav class="navigator-whatsapp">
-        <div class="nav-whtp">
+    <nav>
+        <div class="nav-whatsapp" id="nav-whatsapp">
             <a class="whatsapp-me" href="https://wa.me/60143394001?text=Hello, we have some interest in your profile. We want to know more about you, thank you~" target="_blank" title="Whatsapp Me">
                 <img src="static/images/WhatsAppButtonWhiteMedium.png" width="135" height="35">
             </a>
         </div>
     </nav>
-
-    <div class="container-of-content">
-        
-    </div>
 
     <script src="main.js"></script>
 
@@ -233,5 +238,4 @@
 
     <script src="script.js"></script>
 </body>
-
 </html>
