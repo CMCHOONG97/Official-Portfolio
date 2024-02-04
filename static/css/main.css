@@ -4,8 +4,11 @@ html{
     scroll-behavior: smooth;
 }
 
-html{
-    scroll-behavior: smooth;
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins',sans-serif;
 }
 
 a{
@@ -29,11 +32,11 @@ li{
 }
 
 /*nav = Navigator 导航*/
-nav{
+nav .nav-logo{
     background-color: #3C3633;
     position: absolute;
     top: 0;
-    padding: 0 85px;
+    padding: 0 100%;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -43,7 +46,7 @@ nav{
 
 .nav-logo, footer .logo{
     display: flex;
-    align-items: center;
+    align-items:center;
 }
 
 nav .logo a, footer .logo a{
@@ -79,10 +82,14 @@ nav button#menuButton{
     padding: 7px;
 }
 
-nav .navigator-whatsapp{
+nav .nav-whatsapp{
+    background-color: #3C3633;
     position: absolute;
-    margin-top: 20px;
-    margin-right: 100%;
+    padding: 0 500px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 80px;
 }
 
 /*Introduction 介绍*/
@@ -151,11 +158,12 @@ nav .navigator-whatsapp{
 
 .skills .skill-items .item{
     background-color: #43766C;
-    display: flex;
+    display: inherit;
+    flex-direction: column;
     margin-top: 70px;
     gap: 30px;
     box-sizing: border-box;
-    width: 25%;
+    width: 50%;
     border-radius: 10px;
     padding: 32px;
     border-bottom: 4px solid transparent;
