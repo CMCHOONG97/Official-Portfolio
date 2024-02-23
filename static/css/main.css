@@ -154,6 +154,13 @@ nav button#menuButton{
     margin-top: 20px;
 }
 
+.skills .skill-items{
+    padding: 110px 45px;
+    display: flex;
+    flex-direction: inherit;
+    gap: 20px;
+}
+
 .skills .skill-items .item{
     background-color: #43766C;
     display: flex;
