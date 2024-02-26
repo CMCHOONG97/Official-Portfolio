@@ -3,8 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- UNICONS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.1.0/remixicon.min.css">
+
+    <!-- CSS Style -->
     <link rel="stylesheet" href="static/css/main.css">
+
+    <!-- FAVICON -->
+    <link rel="shortcut icon" href="static/images/Favicon white background.png" type="image/x-icon">
+
     <title>CMCNG97 Portfolio | CM Choong</title>
 </head>
 <body>
@@ -13,24 +21,38 @@
     <nav>
         <div class="nav-logo">
             <a id="main-logo" href="index.html" title="CMCNG97 | Portfolio of CM Choong">
-                <img src="static/images/cmcng97-high-resolution-logo-transparent.png" width="200" height="93.4">
+                <img src="static/images/Favicon Transparent.png">
             </a>
         </div>
         <!--Header Banner 功能-->
         <ul class="navbar-link">
             <!--分类选项 Category Option-->
-            <li id="menu-HomePage" class="menu-item HomePage" title="Home Page | CM Choong"><a href="index.html">Home</a></li>
-            <li id="menu-MyProject" class="menu-item MyProject" title="MyProject"><a href="experience.html">Project</a></li>
-            <li id="menu-MyAward" class="menu-item MyAward" title="About My Award"><a href="award.html">Awards</a></li>
-            <li id="menu-MyResume" class="menu-item MyResume" title="About My Resume"><a href="static/folder/My Resume.pdf" download="">About Me</a></li>
-            <li id="menu-ContactMe" class="menu-item ContactMe"><a href="contact.html">Let's Talk to Me</a></li>
+            <li id="menu-HomePage" class="menu-item HomePage" title="Home Page | CM Choong">
+                <a href="index.html">Home</a>
+            </li>
+            <li id="menu-MyProject" class="menu-item MyProject" title="MyProject">
+                <a href="experience.html">Project</a>
+            </li>
+            <li id="menu-MyAward" class="menu-item MyAward" title="About My Award">
+                <a href="award.html">Awards</a>
+            </li>
+            <li id="menu-MyResume" class="menu-item MyResume" title="About My Resume">
+                <a href="static/folder/My Resume.pdf" download="">About Me</a>
+            </li>
+            <li id="menu-ContactMe" class="menu-item ContactMe">
+                <a href="contact.html">Let's Talk to Me</a>
+            </li>
         </ul>
         <!--联系按键 Contact Button-->
-        <button>Contact Me</button>
-        <button id="menuButton" onclick="openMenu()">
-            <i class="bx bx-menu"></i>
-            <a class="whatsapp-me" href="https://wa.me/60143394001?text=Hello, we have some interest in your profile. We want to know more about you, thank you~" target="_blank" title="Whatsapp Me"></a>
-        </button>
+        <div class="nav-menuButton">
+            <button id="menuButton">
+                <a href="https://wa.me/60143394001?text=Hello, we have some interest in your profile. We want to know more about you, thank you~"></a>Contact Me
+            </button>
+        </div>
+        <!--Navigator bars viewport 变小就会显示-->
+        <div class="nav-bar-menubtn">
+            <i class="ri-menu-line" onclick="BarFunction()"></i>
+        </div>
     </nav>
 
     <!--Content-->
@@ -213,7 +235,7 @@
     <footer>
         <div class="top">
             <div class="logo">
-                <img src="static/images/cmcng97-high-resolution-logo-transparent.png">
+                <img src="static/images/Favicon Transparent.png">
             </div>
             <ul>
                 <li><a href="index.html">Home</a></li>

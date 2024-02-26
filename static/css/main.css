@@ -4,15 +4,20 @@ html{
     scroll-behavior: smooth;
 }
 
-html{
-    scroll-behavior: smooth;
-}
-
 *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: 'Poppins',sans-serif;
+}
+
+body{
+    background-color: #f2f4f7;
+}
+
+.container{
+    width: 100%;
+    position: relative;
 }
 
 a{
@@ -22,7 +27,7 @@ a{
 }
 
 a:hover{
-    color: #5e3bee !important;
+    color: #61425e !important;
 }
 
 /*header control*/
@@ -37,7 +42,7 @@ li{
 
 /*nav = Navigator 导航*/
 nav{
-    background-color: #3C3633;
+    background-color: #ffd28b;
     top: 0;
     padding: 0 85px;
     display: flex;
@@ -82,17 +87,28 @@ nav button{
     transition: all 0.3s ease;
 }
 
-nav button#menuButton{
-    display: none;
+nav a button#menuButton{
+    color: #000000;
+    background-color: #fff;
+    display: flex;
     align-items: center;
     justify-content: center;
     font-size: 24px;
     padding: 7px;
 }
 
+#nav-bar-menubtn{
+    display: none;
+}
+
+#nav-bar-menubtn i{
+    font-size: 50px;
+    cursor: pointer;
+}
+
 /*Introduction 介绍*/
 .main{
-    background-color: #E0CCBE;
+    background-color: #c2a5b0;
     padding: 90px 85px;
     display: flex;
     align-items: center;
@@ -117,7 +133,7 @@ nav button#menuButton{
 
 .main h2 span{
     -webkit-text-fill-color: transparent;
-    -webkit-text-stroke: 2px #000;
+    -webkit-text-stroke: 2px #0057c9;
 }
 
 .main .left p{
@@ -127,7 +143,7 @@ nav button#menuButton{
 }
 
 .main p span{
-    -webkit-text-fill-color: #5e3bee;
+    -webkit-text-fill-color: #0088c7;
 }
 
 /*Profile Image 个人图片*/
@@ -162,7 +178,7 @@ nav button#menuButton{
 }
 
 .skills .skill-items .item{
-    background-color: #43766C;
+    background-color: #c2a5b0;
     display: flex;
     margin-top: 70px;
     gap: 30px;
@@ -183,7 +199,7 @@ nav button#menuButton{
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: #99BC85;
+    background-color: #61425e;
     width: 46px;
     height: 46px;
     border-radius: 10px;
@@ -192,7 +208,7 @@ nav button#menuButton{
 
 .skills .skill-items .item .icon i{
     font-size: 26px;
-    color: #000;
+    color: #ffffff;
 }
 
 .skills .skill-items .item h4,
@@ -204,7 +220,7 @@ nav button#menuButton{
     margin-top: 20px;
     font-size: 14px;
     line-height: 22px;
-    color: #000;
+    color: #ffffff;
 }
 
 /*Porfolio 个人主页*/
@@ -346,7 +362,7 @@ nav button#menuButton{
 .link a{
     position: relative;
     padding-bottom: 0.75rem;
-    color: #fff;
+    color: #ffd28b;
 }
 
 .link a::after{
@@ -376,6 +392,7 @@ nav button#menuButton{
     z-index: -100;
 }
 
+/* Header */
 header{
     position: relative;
     padding-top: 2rem;
@@ -427,6 +444,7 @@ header .image::before{
     opacity: 0.2;
     z-index: -100;
 }
+
 header .image img{
     max-width: 600px;
     margin: auto;
@@ -443,7 +461,7 @@ header .image img{
 
 }
 
-/*Footer 脚板*/
+/* Footer 脚板 */
 footer{
     position: relative;
     overflow: hidden;
@@ -486,11 +504,11 @@ footer .bottom .links a{
     margin-left: 14px;
 }
 
-/*Viewport Alignment 视口调整*/
-@media screen and (max-width: 1200px){
+/* Viewport Alignment 视口调整 */
+/*@media screen and (max-width: 1200px){
     .nav-logo img{
-        width: 100px;
-        height: 50px;
+        width: 70px;
+        height: 70px;
         display: flex;
         align-content: flex-start;
     }
@@ -512,8 +530,8 @@ footer .bottom .links a{
         height: 380px;
     }
 
-    /*Skill*/
-    .skills .skill-items{
+    /* Skill */
+    /*.skills .skill-items{
         gap: 10px;
         justify-content: space-between;
         flex-wrap: wrap;
@@ -521,10 +539,10 @@ footer .bottom .links a{
 
     .skills .skill-items .item{
         width: 100%;
-    }
+    }*/
 
-    /*Mixed Adjustment*/
-    .skills h2,
+    /* Mixed Adjustment */
+    /*.skills h2,
     .portfolio .header h3,
     .feedback h3{
         font-size: 32px;
@@ -547,5 +565,51 @@ footer .bottom .links a{
         align-content: space-between;
         font-size: 15px;
         gap: 20px;
+    }} */
+
+/* Viewport Solution == 1024px / Responsive */
+@media only screen and (max-width: 1024px){
+    
+}
+
+/* Viewport Solution == 900px / Responsive */
+@media only screen and (max-width: 900px){
+    .nav-logo img{
+        width: 70px;
+        height: 70px;
+        display: flex;
+        align-content: flex-start;
+    }
+
+    #menuButton{
+        display: none;
+    }
+
+    .navbar-link.responsive{
+        left: 0;
+    }
+
+    .navbar-link{
+        position: fixed;
+        top: 80px;
+        left: -100%;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background: #ffffff00;
+        backdrop-filter: blur(20px);
+        width: 100%;
+        min-height: 450px;
+        height: 90vh;
+        transition: 0.3s;
+    }
+
+    .nav-bar-menubtn{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
     }
 }
+
+/* Viewport Solution == 540px / Responsive*/
