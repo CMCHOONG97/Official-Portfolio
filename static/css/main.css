@@ -12,6 +12,9 @@ html{
 }
 
 body{
+    margin: 0;
+    padding: 0;
+    border: 0;
     background-color: #f2f4f7;
 }
 
@@ -50,6 +53,11 @@ nav{
     justify-content: space-between;
     height: 80px;
     box-shadow: 0 5px 80px rgba(0, 0, 0, 1);
+}
+
+.nav-logo .main-logo{
+    height: 50px;
+    width: 50px;
 }
 
 .nav-logo, 
@@ -569,7 +577,7 @@ footer .bottom .links a{
 
 /* Viewport Solution == 1024px / Responsive */
 @media only screen and (max-width: 1024px){
-    
+
 }
 
 /* Viewport Solution == 900px / Responsive */
@@ -610,6 +618,85 @@ footer .bottom .links a{
         justify-content: center;
         cursor: pointer;
     }
+
+    .main{
+        flex-direction: column;
+        justify-content: center;
+        height: 100vh;
+    }
+
+    #left{
+        width: 100%;
+        order: 2;
+        justify-content: center;
+        align-content: flex-start;
+        min-height: 60vh;
+    }
+
+    /* Skills */
+    .skill-items{
+        flex-direction: column;
+        justify-content: center;
+    }
+    
+    .skill-items .icon{
+        align-items: baseline;
+    }
+
+    .skill-items .item{
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    /* Portfolio */
+    .portfolio-items{
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .portfolio-items .item{
+        flex-direction: column;
+        justify-content: center;
+        margin: 0 100px 0 100px;
+    }
+
+    /* Customer Feedback */
+    .customers{
+        flex-direction: column;
+        justify-content: center;
+    }
 }
 
 /* Viewport Solution == 540px / Responsive*/
+@media only screen and (max-width: 540px){
+    .left{
+        font-size: 40px;
+    }
+
+    .main .profile-image img{
+        width: 250px;
+        height: 250px;
+    }
+
+    /* Skills */
+    .skill-items{
+        flex-direction: column;
+        justify-content: center;
+    }
+    
+    .skill-items .icon{
+        align-items: baseline;
+    }
+
+    .skill-items .item{
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .skill-items .item p{
+        font-size: 10px;
+    }
+
+    /* Footer Setting */
+    
+}
