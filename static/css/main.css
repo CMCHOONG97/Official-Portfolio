@@ -90,7 +90,7 @@ nav button{
     transition: all 0.3s ease;
 }
 
-nav a button#menuButton{
+nav a button .menuButton{
     color: #000000;
     background-color: #fff;
     display: flex;
@@ -100,11 +100,11 @@ nav a button#menuButton{
     padding: 7px;
 }
 
-#nav-bar-menubtn{
+.nav-bar-menubtn{
     display: none;
 }
 
-#nav-bar-menubtn i{
+.nav-bar-menubtn i{
     font-size: 50px;
     cursor: pointer;
 }
@@ -584,7 +584,7 @@ footer .bottom .links a{
         align-content: flex-start;
     }
 
-    #menuButton{
+    .menuButton{
         display: none;
     }
 
@@ -620,7 +620,7 @@ footer .bottom .links a{
         height: 100vh;
     }
 
-    #left{
+    .left{
         width: 100%;
         order: 2;
         justify-content: center;
