@@ -1,268 +1,337 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Choong Cheng Meng - Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet" />
+  <style>
 
-    <!-- UNICONS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.1.0/remixicon.min.css">
+/* 🌞🌙 主题切换支持 */
+:root {
+  --bg-color: #f5f5f5;
+  --text-color: #222;
+  --card-bg: #ffffff;
+  --btn-bg: #0070f3;
+  --btn-hover: #005bb5;
+}
 
-    <!-- CSS Style -->
-    <link rel="stylesheet" href="static/css/main.css">
+body.dark-mode {
+  --bg-color: #121212;
+  --text-color: #f0f0f0;
+  --card-bg: #1e1e1e;
+  --btn-bg: #2196f3;
+  --btn-hover: #1976d2;
+}
 
-    <!-- FAVICON -->
-    <link rel="shortcut icon" href="static/images/Favicon white background.png" type="image/x-icon">
+    :root {
+      --bg-light: #f4f7fc;
+      --text-light: #1f1f1f;
+      --accent-light: #0070f3;
+      --bg-dark: #121212;
+      --text-dark: #f0f0f0;
+      --accent-dark: #66b2ff;
+    }
 
-    <title>CMCNG97 Portfolio | CM Choong</title>
+    html[data-theme='light'] {
+      background-color: var(--bg-light);
+      color: var(--text-light);
+    }
+
+    html[data-theme='dark'] {
+      background-color: var(--bg-dark);
+      color: var(--text-dark);
+    }
+
+    html[data-theme='dark'] header nav {
+        background: #1e1e1e;
+    }
+
+    html[data-theme='dark'] .nav-links li a {
+        color: var(--text-dark);
+    }
+    
+    html[data-theme='dark'] .nav-links li a:hover {
+        color: var(--accent-dark);
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+  font-family: 'Poppins', sans-serif;
+  line-height: 1.6;
+  color: var(--text-color);
+  background: var(--bg-color);
+  scroll-behavior: smooth;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+    a {
+      text-decoration: none;
+      color: inherit;
+      margin: 0 10px;
+      transition: color 0.3s;
+    }
+    a:hover {
+      color: var(--accent-light);
+    }
+    .container {
+      width: 90%;
+      max-width: 1200px;
+      margin: auto;
+      padding: 40px 0;
+    }
+    header nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px;
+      background: white;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 999;
+    }
+
+    .logo img { height: 40px; }
+    .nav-toggle { display: none; font-size: 28px; cursor: pointer; }
+    .nav-links { list-style: none; display: flex; gap: 20px; }
+    .nav-links li a { font-weight: 500; }
+    .btn {
+  display: inline-block;
+  padding: 10px 20px;
+  margin: 10px;
+  background: var(--btn-bg);
+  color: white;
+  border-radius: 5px;
+  transition: background 0.3s, transform 0.2s;
+}
+
+    .btn:hover {
+  background: var(--btn-hover);
+  transform: scale(1.05);
+}
+
+    .project-card {
+  background: var(--card-bg);
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+  margin-bottom: 30px;
+  transition: background 0.3s ease;
+}
+
+    footer {
+      background: #333;
+      color: white;
+      text-align: center;
+      padding: 20px 0;
+    }
+
+    .profile-photo {
+      width: 160px;
+      height: 160px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-bottom: 20px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+
+    #home {
+        padding-top: 100px; /* 原本是 100px 不够 */
+    }
+
+    #themeToggle {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      padding: 6px 12px;
+      background: #ddd;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 70px;
+        right: 10px;
+        background: white;
+        padding: 10px 20px;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        border-radius: 8px;
+      }
+      .nav-links.show { display: flex; }
+      .nav-toggle { display: block; }
+    }
+  </style>
 </head>
 <body>
 
-    <!--个人主页 Logo-->
-    <nav>
-        <div class="nav-logo">
-            <a id="main-logo" href="index.html" title="CMCNG97 | Portfolio of CM Choong">
-                <img src="static/images/Favicon Transparent.png" height="65px" width="65px">
+<header>
+  <nav>
+    <div class="logo">
+      <a href="#home"><img src="static/images/CM97_Geometric_Logo (Edit).png" alt="Logo"></a>
+    </div>
+    <div class="nav-toggle" onclick="toggleMenu()">☰</div>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+</header>
+
+<button id="themeToggle" onclick="toggleTheme()">Toggle Theme</button>
+
+<!--Short Introduction to public-->
+<section id="home">
+  <div class="container" style="text-align: center;">
+    <img src="static/images/1706507069534.jpg" alt="My Photo" class="profile-photo">
+    <h1>Hi, I'm Choong Cheng Meng</h1>
+    <p>Although I do not hold a formal diploma in IT, I possess practical experience in the IT sector. 
+        <br>I also possess pratical experience in MS Office, such as <strong>Excel <em>(Macros/VBA)</em></strong>, <strong>Word</strong> and <strong>PowerPoint</strong>. </p>
+        <br>
+    <p>A passionate developer and creative problem solver.</p>
+    <a href="#projects" class="btn">View Projects</a>
+    <a href="#contact" class="btn">Contact Me</a>
+  </div>
+</section>
+
+<!--Talk about myself-->
+<section id="about">
+  <div class="container">
+    <h2>About Me</h2>
+    <p>I would like to transition from the food and beverage industry into the technology world, specializing in front-end development, data science, and Unity 3D game creation.<br><br>I enjoy building creative projects, built 3D Modeling, exploring AI technologies, and continuously pushing the boundaries of my technical skills.</p>
+  </div>
+</section>
+
+<!--My all Project or profile item-->
+<section id="projects">
+  <div class="container">
+    <h2>Projects</h2>
+    <div id="project-list">Loading projects...</div>
+  </div>
+</section>
+
+<!--Skills Department-->
+<section id="skills">
+  <div class="container">
+    <h2>Skills</h2>
+    <ul>
+      <li><b>Programming Languages:</b> C#, Python, VBA, JavaScript</li>
+      <li><b>Tools:</b> Unity 3D, Excel Automation, AI Model Development, 3D Modeling, Rigging, VFX, and etc</li>
+      <li><b>Soft Skills:</b> Independent Learning, Problem Solving, Cross-domain Thinking</li>
+    </ul>
+  </div>
+</section>
+
+<!--My Qualification and Certificate-->
+<section id="certificates">
+    <div class="container">
+      <h2>Certificates</h2>
+  
+      <div class="project-card">
+        <h3>International Diploma of Business</h3>
+        <p>Issued by Camford International College – Credential ID: 200002539Z</p>
+        <a href="static/folder/172418 Digital Certificate Diploma Business Administration Management.pdf" class="btn" target="_blank">View Certificate</a>
+        <a href="https://www.facebook.com/Camfordsg/" class="btn" target="_blank">College Official Page</a>
+      </div>
+  
+      <div class="project-card">
+        <h3>Indie Game Development</h3>
+        <p>Issued by MAGES Institute of Excellence - Certificate No: SC207-2024027</p>
+        <a href="static/folder/Indie Game Development - Choong Cheng Meng_Education.pdf" class="btn" target="_blank">View Certificate</a>
+        <a href="https://dashboard.accredify.io/verify?id=c05ad637-2eb6-4059-a9e2-580ac874a596" class="btn" target="_blank">Digital Verify</a>
+        <a href="https://mages.edu.sg/" class="btn" target="_blank">Institute Official Website</a>
+      </div>
+  
+    </div>
+  </section>
+  
+<!--Keep In Touch with Me-->
+<section id="contact">
+    <div class="container">
+      <h2>Contact Me</h2>
+      <a href="https://wa.me/60143394001?text=Hello, we have some interest in your profile. We want to know more about you, thank you~" target="_blank" class="whatsapp-btn">
+        <img src="static/images/whatsapp.png" alt="WhatsApp" style="width: 135px ;height: 35px; margin: 10px;">
+      </a>
+      <p>Email: <a href="choongchengmeng@gmail.com?subject=Interested in your portfolio&body=Hi Cheng Meng, I visited your website and..."">choongchengmeng@gmail.com</a></p>
+    </div>
+  
+      <div style="margin-top: 30px; text-align: center;">
+        <h3 style="margin-bottom: 10px;">Social Media</h3>
+        <div style="display: inline-block;">
+            <a href="https://www.facebook.com/GamerofCMChoong/" target="_blank">
+                <img src="static/folder/Logo.gif" alt="facebook" width="30" height="30" style="margin: 0 10px;">
+            </a>
+            <a href="https://www.instagram.com/chengmeng.choong?igsh=Z3FydmhodXVsamlj" target="_blank">
+                <img src="static/folder/instagram-alt.svg" width="30" height="30" style="margin: 0 10px">
+            </a>
+            <a href="https://www.linkedin.com/in/choong-cheng-meng-650442285" target="_blank">
+                <img src="static/folder/linkedin.svg" width="30" height="30" style="margin: 0 10px">
+            </a>
+            <a href="https://github.com/CMCHOONG97" target="_blank">
+                <img src="static/folder/github.svg" width="30" height="30" style="margin: 0 10px">
+            </a>
+            <a href="https://www.artstation.com/choongmeng">
+                <img src="static/images/artstation-line.svg" width="30" height="30" style="margin: 0 10px;">
             </a>
         </div>
-        <!--Header Banner 功能-->
-        <ul class="navbar-link">
-            <!--分类选项 Category Option-->
-            <li id="menu-HomePage" class="menu-item HomePage" title="Home Page | CM Choong">
-                <a href="index.html">Home</a>
-            </li>
-            <li id="menu-MyProject" class="menu-item MyProject" title="MyProject">
-                <a href="experience.html">Project</a>
-            </li>
-            <li id="menu-MyAward" class="menu-item MyAward" title="About My Award">
-                <a href="awards.html">Awards</a>
-            </li>
-            <li id="menu-MyResume" class="menu-item MyResume" title="About My Resume">
-                <a href="static/folder/My Resume.pdf" download="">About Me</a>
-            </li>
-            <li id="menu-ContactMe" class="menu-item ContactMe">
-                <a href="contact.html">Let's Talk to Me</a>
-            </li>
-        </ul>
-        <!--联系按键 Contact Button-->
-        <div class="nav-menuButton">
-            <button id="menuButton">
-                <a href="https://wa.me/60143394001?text=Hello, we have some interest in your profile. We want to know more about you, thank you~"></a>Contact Me
-            </button>
-        </div>
-        <!--Navigator bars viewport 变小就会显示-->
-        <div class="nav-bar-menubtn">
-            <i class="ri-menu-line" onclick="BarFunction()"></i>
-        </div>
-    </nav>
+      </div>
+  </section>
 
-    <!--Content-->
-    <div class="main" id="main">
-        <div class="left">
-            <h3>Hi, I am</h3>
-                <h2><span>CM Choong</span></h2>
-                <p class="subtitle">
-                    Although I do not hold a formal diploma in IT, I possess practical experience in the <span>IT sector</span>. 
-                    <br>I also possess pratical experience in MS Office, such as <span>Excel (Macros/VBA)</span>,<span>Basis of Word</span> and <span>PowerPoint</span>. 
-                    <br>I would like to be myself, anything be in peace.
-                </p>
-        </div>
-
-        <!--Profile Image 个人图片展示-->
-        <div class="right">
-            <div class="profile-image" id="profile-image">
-                <img src="static/images/1706507069534.jpg">
-            </div>
-        </div>
-    </div>
-
-    <!--Skills Shown Part 技能展示部分-->
-    <div class="skills" id="skills">
-        <h5>My Skills</h5>
-        <h3>My Expertise</h3>
-        <div class="skill-items">
-            <div class="item">
-                <div class="icon"><i class="ri-artboard-line"></i>"</div>
-                <h4>Art</h4>
-                <p>
-                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Accusantium pariatur recusandae possimus molestias rem facilis non modi perferendis id? Quasi est commodi officiis temporibus sapiente quam asperiores laudantium itaque non.
-                </p>
-            </div>
-            <div class="item">
-                <div class="icon"><i class="ri-creative-commons-line"></i>"</div>
-                <h4>Content Creater</h4>
-                <p>
-                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Accusantium pariatur recusandae possimus molestias rem facilis non modi perferendis id? Quasi est commodi officiis temporibus sapiente quam asperiores laudantium itaque non.
-                </p>
-            </div>
-            <div class="item">
-                <div class="icon"><i class="ri-pages-line"></i>"</div>
-                <h4>Project</h4>
-                <p>
-                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Accusantium pariatur recusandae possimus molestias rem facilis non modi perferendis id? Quasi est commodi officiis temporibus sapiente quam asperiores laudantium itaque non.
-                </p>
-            </div>
-            <div class="item">
-                <div class="icon"><i class="ri-code-s-slash-fill"></i>"</div>
-                <h4>Webflow Coding</h4>
-                <p>
-                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Accusantium pariatur recusandae possimus molestias rem facilis non modi perferendis id? Quasi est commodi officiis temporibus sapiente quam asperiores laudantium itaque non.
-                </p>
-            </div>
-        </div>
-    </div>
-
-    <!--Project Shown Part 作品展示部分-->
-    <div class="portfolio" id="portfolio">
-        <div class="header">
-            <div class="info">
-                <h5>Latest Project</h5>
-                <h3>My Portfolio</h3>
-            </div>
-            <button><i class="ri-youtube-line"></i>Visit My Channel Page</button>
-        </div>
-
-        <div class="portfolio-items">
-            <div class="item">
-                <img src="static/images/Production Analysis img.jpg">
-                <div class="info">
-                    <h4>Production Analysis</h4>
-                    <p>
-                        Analysis out the product reject rate and good rate, for the previous and present average.
-                        <br><a href="https://wa.me/60143394001?text=Hello, we have some interest in your Product Analysis Project">Please contact for the more information.<i class="ri-external-link-line"></i></a>
-                    </p>
-                </div>
-            </div>
-            <div class="item">
-                <img src="static/images/Csoftware create img.jpg">
-                <div class="info">
-                    <h4>C# Software Development</h4>
-                    <p>
-                        The demo for test login to main pages, and manage account in software.
-                        <br><a href="https://wa.me/60143394001?text=Hello, we have some interest in your C# Software Project">Please contact for the more information.<i class="ri-external-link-line"></i></a>
-                    </p>
-                </div>
-            </div>
-            <div class="item">
-                <img src="static/images/Payroll img.jpg">
-                <div class="info">
-                    <h4>Excel Payroll Calculation</h4>
-                    <p>
-                        Excel auto calculation for the payroll system.
-                        <br><a href="https://wa.me/60143394001?text=Hello, we have some interest in your Excel Payroll Project">Please contact for the more information.<i class="ri-external-link-line"></i></a>
-                    </p>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!--Customer Feedback Part 客户反馈部分-->
-    <div class="feedback" id="feedback">
-        <h5>Clients Reviews</h5>
-        <h3>Customer Feedback</h3>
-        <div class="customers">
-            <div class="item">
-                <div class="rating">
-                    <i class="ri-star-s-fill"></i>
-                    <i class="ri-star-s-fill"></i>
-                    <i class="ri-star-s-fill"></i>
-                    <i class="ri-star-half-s-fill"></i>
-                    <i class="ri-star-s-line"></i>
-                </div>
-                <p>
-                    "Good Excel analyzer, easy to understand and not complicated. The efficiency is good."
-                </p>
-                <div class="user">
-                    <img src="static/images/us-2.jpg">
-                    <div class="info">
-                        <h5>Kristian Watson</h5>
-                        <p>Production Manager</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="item">
-                <div class="rating">
-                    <i class="ri-star-s-fill"></i>
-                    <i class="ri-star-s-fill"></i>
-                    <i class="ri-star-s-fill"></i>
-                    <i class="ri-star-s-line"></i>
-                    <i class="ri-star-s-line"></i>
-                </div>
-                <p>
-                    "和我所要的条件有点不符合，但是功能和我想要的接近。所以我给 3星, 因为作者花费时间来帮我制作出来。"
-                </p>
-                <div class="user">
-                    <img src="static/images/cn.jpg">
-                    <div class="info">
-                        <h5>朱溢哲</h5>
-                        <p>Finance Executive</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="item">
-                <div class="rating">
-                    <i class="ri-star-s-fill"></i>
-                    <i class="ri-star-s-fill"></i>
-                    <i class="ri-star-s-fill"></i>
-                    <i class="ri-star-s-fill"></i>
-                    <i class="ri-star-s-line"></i>
-                </div>
-                <p>
-                    "Super excellent content create, and logo design for me"
-                </p>
-                <div class="user">
-                    <img src="static/images/us-1.jpg">
-                    <div class="info">
-                        <h5>Dianne Russell</h5>
-                        <p>Property</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    
-        <div class="nav-whatsapp" id="nav-whatsapp">
-            <a class="whatsapp-me" href="https://wa.me/60143394001?text=Hello, we have some interest in your profile. We want to know more about you, thank you~" target="_blank" title="Whatsapp Me">
-                <img src="static/images/WhatsAppButtonWhiteMedium.png" width="135" height="35">
-            </a>
-        </div>
-    
-
-    <script src="static/js/main.js"></script>
-
-    <footer>
-        <div class="top">
-            <div class="logo">
-                <img src="static/images/Favicon Transparent.png">
-            </div>
-            <ul>
-                <div class="web-link" id="web-links">
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="contact.html">Contact Me</a></li>
-                    <li><a href="https://www.youtube.com/channel/UCF_fYTbi9GbJ0UVG-kfwoRQ">Youtube Channel</a></li>
-                    <li><a href="experience.html">Project</a></li>
-                </div>
-            </ul>
-            <div class="social-links">
-                <a href="https://www.facebook.com/GamerofCMChoong/"><i class="ri-facebook-circle-line"></i></a>
-                <a href="https://www.instagram.com/chengmeng.choong?igsh=Z3FydmhodXVsamlj"><i class="ri-instagram-line"></i></a>
-                <a href="https://www.artstation.com/choongmeng"><img src="static/images/artstation-line.svg" width="17" height="17"></a>
-            </div>
-        </div>
-        <div class="separator"></div>
-        <div class="bottom">
-            <p>&copy; 2024 All right reserved | CMCNG97 Copyright </p>
-            <div class="links">
-                <a href="#">Privacy Policy</a>
-                <a href="#">Terms of Service</a>
-                <a href="#">Cookies Setting</a>
-            </div>
-        </div>
-    </footer>
-
-    <script src="static/js/main.js"></script>
-</body>
-
-</html>
+  <footer>
+    <p>
+        © 2025 Choong Cheng Meng. Built with passion and coffee.
+        <br>Brainstorming for built this website
+    </p>
+  </footer>
+  
+  <div style="position: fixed; bottom: 20px; right: 20px; z-index: 999;">
+    <button onclick="toggleTheme()" class="btn" style="padding: 8px 14px; font-size: 14px;">Toggle Mode</button>
+  </div>
+  
+  <script>
+    function toggleMenu() {
+      document.getElementById("navLinks").classList.toggle("show");
+    }
+  
+    function toggleTheme() {
+      const current = document.documentElement.getAttribute("data-theme");
+      const next = current === "light" ? "dark" : "light";
+      document.documentElement.setAttribute("data-theme", next);
+    }
+  
+    fetch('projects.json')
+      .then(res => res.json())
+      .then(data => {
+        const container = document.getElementById('project-list');
+        container.innerHTML = '';
+        data.forEach(p => {
+          let html = `
+            <div class="project-card">
+              <img src="${p.image}" alt="${p.title_en}" style="width:200px;"><br>
+              <h3>${p.title_en}</h3>
+              <p>${p.description_en}</p>
+              <p><b>Tech Stack:</b> ${p.tech}</p>`;
+  
+          if (p.github && p.github.trim() !== '') {
+            html += `<a href="${p.github}" class="btn" target="_blank">GitHub Repo</a>`;
+          }
+  
+          html += `</div><hr/>`;
+          container.innerHTML += html;
+        });
+      });
+  
+    function toggleTheme() {
+      document.body.classList.toggle("dark-mode");
+    }
+  </script>
+  
+  </body>
+  </html>
