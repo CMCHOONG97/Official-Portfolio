@@ -1,4 +1,265 @@
 html {
-    scroll-behavior: smooth;
+  scroll-behavior: smooth;
+}
+
+:root {
+  --bg-light: #e4ffe2;
+  --text-light: #009632;
+  --accent-light: #0070f3;
+  --bg-dark: #1a1b1f;
+  --text-dark: #f2f2f2;
+  --accent-dark: #c4ff00;
+  --btn-bg: #c4ff00;
+  --btn-hover: #a3cc00;
+}
+
+html[data-theme='light'] {
+  background: var(--bg-light);
+  color: var(--text-light);
+}
+
+html[data-theme='dark'] {
+  background: var(--bg-dark);
+  color: var(--text-dark);
+}
+
+html[data-theme='dark'] nav {
+  background: #1e1e1e;
+}
+
+html[data-theme='dark'] .nav-links li a {
+  color: var(--text-dark); /* 确保黑夜可见 */
+}
+
+html[data-theme='dark'] .nav-links li a:hover {
+  color: var(--accent-dark);
+}
+
+html[data-theme='dark'] .project-card {
+  background: #242526;
+}
+
+body {
+  font-family: Poppins, sans-serif;
+  margin: 0;
+  padding: 0;
+  line-height: 1.6;
+}
+
+.container {
+  padding: 60px 20px;
+  max-width: 1000px;
+  margin: auto;
+}
+
+nav {
+  background: white;
+  padding: 0 30px;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 999;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+  border-bottom: 1px solid #ccc;
+}
+
+.nav-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: auto;
+  height: 70px;
+}
+
+.nav-left,
+.nav-right {
+  flex: 1;
+}
+
+.nav-center {
+  flex: 2;
+  display: flex;
+  justify-content: center;
+}
+
+.nav-links {
+  display: flex;
+  gap: 30px;
+  justify-content: center;
+  align-items: center;
+}
+
+.nav-links li {
+  list-style: none;
+}
+
+.nav-links li a {
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s;
+  color: var(--text-light); /* 修复 light 模式颜色 */
+}
+
+.nav-links li a:hover {
+  color: var(--accent-light);
+}
+
+.logo img {
+  max-height: 50px;
+  margin-left: 10px;
+}
+
+.nav-toggle {
+  font-size: 24px;
+  cursor: pointer;
+  display: none;
+}
+
+.profile-photo {
+  width: 160px;
+  height: 160px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.project-card {
+  background: var(--bg-light);
+  padding: 20px;
+  margin-bottom: 30px;
+  border-radius: 10px;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+}
+
+.project-card img {
+  max-width: 100%;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+footer {
+  text-align: center;
+  padding: 20px;
+  background: #333;
+  color: white;
+}
+
+.btn {
+  background-color: var(--btn-bg);
+  color: #000;
+  padding: 10px 16px;
+  border: none;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: 600;
+  display: inline-block;
+  margin-top: 10px;
+  transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+  background-color: var(--btn-hover);
+}
+
+.social-icon {
+  margin: 0 10px;
+  width: 30px;
+  height: 30px;
+}
+
+#themeToggle {
+  margin-left: 10px;
+  padding: 6px 12px;
+  background-color: var(--btn-bg);
+  border: none;
+  border-radius: 5px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+#themeToggle:hover {
+  background-color: var(--btn-hover);
+}
+
+#home {
+  padding-top: 100px; /* 调整这个数值直到你满意 */
+}
+
+/*----------This is Projects slider to view my all project image----------*/
+.image-slider {
+  position: relative;
+  width: 300px;
+  height: 200px;
+  overflow: hidden;
+}
+
+.image-slider .prev,
+.image-slider .next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0,0,0,0.5);
+  color: white;
+  border: none;
+  font-size: 20px;
+  padding: 5px;
+  cursor: pointer;
+  z-index: 2;
+}
+
+.image-slider .prev {
+  left: 5px;
+}
+
+.image-slider .next {
+  right: 5px;
+}
+
+/*----------This part is for fixed my Project image size----------*/
+.project-image {
+  width: 500;
+  height: 500;
+  object-fit: cover; /* 保持图片比例，不变形，剪裁多余部分 */
+  border-radius: 8px;
+}
+
+@media (max-width: 768px) {
+  .nav-center {
+    display: none;
   }
 
+  .nav-toggle {
+    margin: auto;
+    display: block;
+  }
+
+  .nav-links {
+    flex-direction: column;
+    position: absolute;
+    top: 70px;
+    left: 10px;
+    right: 10px;
+    background: white;
+    padding: 10px 10px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    display: none;
+    min-width: 160px;
+    text-align: center;
+    z-index: 1000;
+  }
+
+  .nav-links.show {
+    display: flex;
+  }
+
+  html[data-theme='dark'] .nav-links {
+    background: #1e1e1e;
+  }
+
+  #themetoggle{
+    display: flex;
+  }
+}
