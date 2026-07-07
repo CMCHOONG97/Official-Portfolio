@@ -159,6 +159,18 @@ footer {
   transition: background-color 0.3s ease;
 }
 
+.btn-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.btn-group .btn {
+  margin-top: 0;
+  /* 间距交给 gap 处理，不用原本的 margin-top */
+}
+
 .btn:hover {
   background-color: var(--btn-hover);
 }
@@ -170,7 +182,7 @@ footer {
 }
 
 #themeToggle {
-  margin-left: 10px;
+  margin-right: 50px;
   padding: 6px 12px;
   background-color: var(--btn-bg);
   border: none;
@@ -185,6 +197,44 @@ footer {
 
 #home {
   padding-top: 100px; /* 调整这个数值直到你满意 */
+}
+
+.modal-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 1000;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-overlay.show {
+  display: flex;
+}
+
+.modal-box {
+  position: relative;
+  background: var(--bg-color, #fff);
+  color: inherit;
+  max-width: 90%;
+  width: 960px;
+  max-height: 80vh;
+  overflow-y: auto;
+  border-radius: 10px;
+  padding: 96px 72px 72px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.modal-close {
+  position: absolute;
+  top: 8px;
+  right: 12px;
+  background: none;
+  border: none;
+  font-size: 1.6rem;
+  cursor: pointer;
+  color: inherit;
 }
 
 /*----------This is Projects slider to view my all project image----------*/
@@ -223,6 +273,7 @@ footer {
   height: 500;
   object-fit: cover; /* 保持图片比例，不变形，剪裁多余部分 */
   border-radius: 8px;
+  
 }
 
 @media (max-width: 768px) {
@@ -261,5 +312,21 @@ footer {
 
   #themetoggle{
     display: flex;
+  }
+
+  .btn-group {
+    flex-direction: column;
+  }
+  
+  .btn-group .btn {
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 0px;
+    text-align: center;
+  }
+
+  .modal-box {
+    width: 480px;
+    padding: 32px 24px 24px;
   }
 }
