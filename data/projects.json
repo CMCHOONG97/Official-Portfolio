@@ -1,0 +1,59 @@
+[
+  {
+    "title": "Art Street",
+    "description": "This is my art work",
+    "tech": "Clip Studio Paint, Adobe Photoshop, Adobe Ilustrator",
+    "github": "",
+    "link": "https://www.artstation.com/choongmeng",
+    "images": [
+      "static/projects/art-street/Handraw & color _Avengers Age Of Ultron paper Art (26 JUNE 2015).jpg",
+      "static/projects/art-street/Handraw & color_League Of Legend Poppy paper Art (3 SEP 2016).jpg",
+      "static/projects/art-street/Handraw & color_Transformers Bumblebee (17 FEB 2019).jpg",
+      "static/projects/art-street/Handraw & colo_Cross Fire theme paper art (16 SEP 2020).jpg",
+      "static/projects/art-street/Honor of King Character_color.jpg",
+      "static/projects/art-street/Honor of King Character_draw.jpg",
+      "static/projects/art-street/Honor of King Character_sketch.jpg",
+      "static/projects/art-street/Kimetsu no Yaiba (Demon Slayer) - Inosuke Hashibira_color.jpg",
+      "static/projects/art-street/Kimetsu no Yaiba (Demon Slayer) - Inosuke Hashibira_draw.jpg",
+      "static/projects/art-street/Kimetsu no Yaiba (Demon Slayer) - Inosuke Hashibira_greyscale.jpg",
+      "static/projects/art-street/Kimetsu no Yaiba (Demon Slayer) - Inosuke Hashibira_sketch.jpg",
+      "static/projects/art-street/Kimetsu no Yaiba (Demon Slayer) - Zenitsu Agatsuma_color.jpg",
+      "static/projects/art-street/Kimetsu no Yaiba (Demon Slayer) - Zenitsu Agatsuma_draw.jpg",
+      "static/projects/art-street/Kimetsu no Yaiba (Demon Slayer) - Zenitsu Agatsuma_greyscale.jpg",
+      "static/projects/art-street/Kimetsu no Yaiba (Demon Slayer) - Zenitsu Agatsuma_sketch.jpg"
+    ]
+  },
+  {
+    "title": "Front End Development",
+    "description": "This is my Front-end develop by myself, it will be my part of the portfolio",
+    "tech": "Visual Studio Code (for programming system), HTML, CSS, JavaScript, Json, Node.js",
+    "github": "https://github.com/CMCHOONG97",
+    "link": "https://cmchoong97.github.io/musicplayer/",
+    "images": [
+      "static/projects/front-end-development/my own official website front-end development.jpg",
+      "static/projects/front-end-development/screenshot mp3 layout design template sample.jpg"
+    ]
+  },
+  {
+    "title": "Game Development Design",
+    "description": "This is my game development and some language that I was using in this game",
+    "tech": "Visual Studio Code (for programming system), Unity, C#, Python, C++ (it might be in the future that i will use to develop Triple-A Games)",
+    "github": "",
+    "link": "",
+    "images": [
+      "static/projects/game-development-design/screenshot file game development wth Unity.jpg"
+    ]
+  },
+  {
+    "title": "Office Document",
+    "description": "This is some project that previously and the current that I built out and develop for easier to manage some project.",
+    "tech": "Microsoft Excel (Macro/VBA), Python, Microsoft Word, MIcrosoft Power Point",
+    "github": "",
+    "link": "",
+    "images": [
+      "static/projects/office-document/Payroll img.jpg",
+      "static/projects/office-document/Payslip img.jpg",
+      "static/projects/office-document/preview.jpg"
+    ]
+  }
+]
