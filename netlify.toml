@@ -1,0 +1,6 @@
+[build]
+  # 每次部署前，先跑这个脚本扫描 static/projects/ 文件夹，
+  # 自动重新生成 static/data/projects.json
+  # 你只需要：加/改项目文件夹 -> git push -> Netlify 自动重新生成数据 -> 上线
+  command = "node scripts/generateProjects.js && node scripts/generateCertificates.js"
+  publish = "."

@@ -5,7 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Choong Cheng Meng - Portfolio</title>
   <link rel="stylesheet" href="static/css/main.css" />
+  <link rel="stylesheet" href="static/css/contact.css" />
+  <script defer src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script defer src="static/js/supabase-config.js"></script>
   <script defer src="static/js/main.js"></script>
+  <script defer src="static/js/contact.js"></script>
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6843694017000368"
      crossorigin="anonymous"></script>
 </head>
@@ -26,26 +30,27 @@
           <li><a href="#skills">Skills</a></li>
           <li><a href="#contact">Contact</a></li>
         </ul>
-        <button id="themeToggle" aria-label="Toggle Light and Dark Theme">Switch</button>
+        <button id="themeToggle" aria-label="Toggle Light and Dark Theme"><span id="themeIcon">🌙</span></button>
       </div>
     </nav>
   </header>
-
-
 
 <section id="home">
   <div class="container" style="text-align: center;">
     <img src="static/images/1706507069534.jpg" alt="My Photo" class="profile-photo">
     <h1>Hi, I'm Choong Cheng Meng</h1>
-    <p>Although I do not hold a formal diploma in IT, I possess practical experience in the IT sector.
-        <br>I also possess practical experience in MS Office, such as <strong>Excel <em>(Macros/VBA)</em></strong>, <strong>Word</strong> and <strong>PowerPoint</strong>.</p>
-    <p>A passionate developer and creative problem solver.</p>
+    <p>I hold a Degree in Computer Science, and I bring hands-on practical experience across
+      front-end development, automation, and 3D creation. 
+      <br>I'm also proficient in MS Office tools, including <strong>Excel <em>(Macros/VBA)</em></strong>, <strong>Word</strong>, and <strong>PowerPoint</strong>.</p>
+    <p>A passionate developer who's always exploring new technologies and pushing myself to grow — driven by curiosity and a love for solving problems creatively.</p>
   </div>
 </section>
 
 <section id="about" class="container">
     <h2>About Me</h2>
-    <p>I transitioned from the food and beverage industry into the technology world, specializing in front-end development, data science, and Unity 3D game creation.</p>
+    <p>I transitioned from the food and beverage industry into the technology world, specializing in front-end development,
+      data science, and Unity 3D game creation. I'm constantly expanding my skill set, staying curious about emerging tools
+      and best practices in the industry.</p>
 </section>
 
 <section id="projects" class="container">
@@ -65,19 +70,7 @@
 <section id="certificates">
   <div class="container">
     <h2>Certificates & Qualifications</h2>
-    <div class="project-card">
-      <h3>International Diploma of Business</h3>
-      <p>Issued by Camford International College – Credential ID: 200002539Z</p>
-      <a href="static/folder/172418 Digital Certificate Diploma Business Administration Management.pdf" class="btn" target="_blank">View Certificate</a>
-      <a href="https://www.facebook.com/Camfordsg/" class="btn" target="_blank">College Official Page</a>
-    </div>
-    <div class="project-card">
-      <h3>Indie Game Development</h3>
-      <p>Issued by MAGES Institute of Excellence - Certificate No: SC207-2024027</p>
-      <a href="static/folder/Indie Game Development - Choong Cheng Meng_Education.pdf" class="btn" target="_blank">View Certificate</a>
-      <a href="https://dashboard.accredify.io/verify?id=c05ad637-2eb6-4059-a9e2-580ac874a596" class="btn" target="_blank">Authority Digital Verify</a>
-      <a href="https://mages.edu.sg/" class="btn" target="_blank">Institute Website</a>
-    </div>
+    <div id="certificate-list"></div>
   </div>
 </section>
 
@@ -87,6 +80,14 @@
     <img src="static/images/whatsapp.png" alt="WhatsApp" style="width: 135px; height: 35px;">
   </a>
   <p>Email: <a href="mailto:choongchengmeng@gmail.com?subject=Interested in your portfolio&body=Hi Cheng Meng, I visited your website and...">choongchengmeng@gmail.com</a></p>
+
+  <form id="contact-form" class="contact-form">
+    <input type="text" name="name" placeholder="Your Name" required>
+    <input type="email" name="email" placeholder="Your Email" required>
+    <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+    <button type="submit">Send Message</button>
+    <p id="contact-status" class="contact-status"></p>
+  </form>
   <div style="text-align: center; margin-top: 20px;">
     <h3>Social Media</h3>
     <div style="display: inline-block;">
@@ -100,6 +101,12 @@
   </div>
 </section>
 
+<div id="modalOverlay" class="modal-overlay">
+  <div class="modal-box">
+    <button id="modalClose" class="modal-close" aria-label="Close">&times;</button>
+    <div id="modalContent" class="modal-content"></div>
+  </div>
+</div>
 <!-- <button id="themeToggle" aria-label="Toggle Light and Dark Theme">Toggle Theme</button> -->
 
 <footer>
