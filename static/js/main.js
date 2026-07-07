@@ -20,10 +20,18 @@ function toggleMenu() {
   document.getElementById("navLinks").classList.toggle("show");
 }
 
+function updateThemeIcon(theme) {
+  const icon = document.getElementById("themeIcon");
+  if (icon) {
+    icon.textContent = theme === "light" ? "🌙" : "☀️";
+  }
+}
+
 function toggleTheme() {
   const current = document.documentElement.getAttribute("data-theme");
   const next = current === "light" ? "dark" : "light";
   document.documentElement.setAttribute("data-theme", next);
+  updateThemeIcon(next);
 
   const logo = document.getElementById("siteLogo");
   if (logo) {
@@ -33,17 +41,113 @@ function toggleTheme() {
   }
 }
 
+function formatDescription(text) {
+  if (!text) return "<p>No description available.</p>";
+
+  const lines = text.split("\n").map(l => l.trim());
+  let html = "";
+  let listBuffer = [];
+  let paraBuffer = [];
+
+  function flushList() {
+    if (listBuffer.length) {
+      html += "<ul>" + listBuffer.map(item => `<li>${item}</li>`).join("") + "</ul>";
+      listBuffer = [];
+    }
+  }
+  function flushPara() {
+    if (paraBuffer.length) {
+      html += `<p>${paraBuffer.join("<br>")}</p>`;
+      paraBuffer = [];
+    }
+  }
+
+  lines.forEach(line => {
+    if (!line) { flushList(); flushPara(); return; }
+    if (line.startsWith("### ")) { flushList(); flushPara(); html += `<h3>${line.slice(4)}</h3>`; }
+    else if (line.startsWith("## ")) { flushList(); flushPara(); html += `<h2>${line.slice(3)}</h2>`; }
+    else if (line.startsWith("# ")) { flushList(); flushPara(); html += `<h1>${line.slice(2)}</h1>`; }
+    else if (line.startsWith("- ")) { flushPara(); listBuffer.push(line.slice(2)); }
+    else { flushList(); paraBuffer.push(line); }
+  });
+  flushList();
+  flushPara();
+
+  return html;
+}
+
+function openModal(html) {
+  document.getElementById("modalContent").innerHTML = html;
+  document.getElementById("modalOverlay").classList.add("show");
+}
+
+function closeModal() {
+  document.getElementById("modalOverlay").classList.remove("show");
+  document.getElementById("modalContent").innerHTML = "";
+}
+
 document.addEventListener("DOMContentLoaded", () => {
   document.getElementById("themeToggle").addEventListener("click", toggleTheme);
   document.querySelector(".nav-toggle").addEventListener("click", toggleMenu);
+  document.getElementById("modalClose").addEventListener("click", closeModal);
+  document.getElementById("modalOverlay").addEventListener("click", (e) => {
+    if (e.target.id === "modalOverlay") closeModal();
+  });
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") closeModal();
+  });
 
-  fetch("static/data/projects.json")
-    .then(res => res.json())
-    .then(projects => {
-      const container = document.getElementById("project-list");
-      container.innerHTML = "";
+  loadProjects();
+  loadCertificates();
+});
 
-      projects.forEach((p, index) => {
+async function loadCertificates() {
+  const container = document.getElementById("certificate-list");
+  if (!container) return;
+
+  try {
+    const res = await fetch("static/data/certificates.json");
+    if (!res.ok) throw new Error(`HTTP ${res.status}`);
+    const certificates = await res.json();
+
+    container.innerHTML = certificates.map((c, index) => `
+      <div class="project-card">
+        <h3>${c.title}</h3>
+        <p>${c.issuer || ""}</p>
+        <div class="btn-group">
+          ${c.details ? `<a href="javascript:void(0)" class="btn cert-details-btn" data-index="${index}">Course Details</a>` : ""}
+          ${c.pdf ? `<a href="${c.pdf}" class="btn" target="_blank">View Certificate</a>` : ""}
+          ${(c.links || []).map(l => `<a href="${l.url}" class="btn" target="_blank">${l.label}</a>`).join("")}
+        </div>
+      </div>
+    `).join("");
+
+    // 每个 "Course Details" 按钮，点击时从对应证书的 details 内容开 modal
+    container.querySelectorAll(".cert-details-btn").forEach(btn => {
+      btn.addEventListener("click", () => {
+        const cert = certificates[btn.dataset.index];
+        openModal(formatDescription(cert.details));
+      });
+    });
+  } catch (err) {
+    container.innerHTML = "⚠️ Failed to load certificates.";
+    console.error("Error loading certificates:", err.message);
+  }
+}
+
+async function loadProjects() {
+  const container = document.getElementById("project-list");
+
+  try {
+    // 读取本地 JSON（由 netlify.toml 在每次部署时自动跑
+    // scripts/generateProjects.js 重新生成，不需要数据库）
+    const res = await fetch("static/data/projects.json");
+    if (!res.ok) throw new Error(`HTTP ${res.status}`);
+    const projects = await res.json();
+
+    container.innerHTML = "";
+
+    projects.forEach((p, index) => {
         const imageId = `project-image-${index}`;
         const projectImages = (p.images || []).map(img =>
           img.startsWith("static/") ? img : "static/" + img
@@ -67,9 +171,8 @@ document.addEventListener("DOMContentLoaded", () => {
         window[`${imageId}_index`] = 0;
         window[`${imageId}_images`] = projectImages;
       });
-    })
-    .catch(err => {
-      document.getElementById("project-list").innerHTML = "⚠️ Failed to load projects.";
-      console.error("Error loading projects:", err.message);
-    });
-});
+  } catch (err) {
+    container.innerHTML = "⚠️ Failed to load projects.";
+    console.error("Error loading projects:", err.message);
+  }
+}
